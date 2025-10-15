@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'Beach Day';
+    src: url(../fonts/beachday.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Summer Beach';
+    src: url(../fonts/SummerBeach.ttf);
+    font-weight: normal;    
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Summer Beach', sans-serif;
+    background-image: url(../images/background.jpg);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-family: "Beach Day", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3rem;
+    color: #804100;
+    text-shadow: 3px 1px 2px rgba(0, 0, 0, 0.384);
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #000000;
+}
+
+input {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    transition: 0.3s;
+}
+
+input:focus {
+    box-shadow: 0 0 10px #ffeb3b;
+}
+
+button {
+    background-color: #ffeb3b;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.container {
+    background-image: url(../images/panel.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5%;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #fff176;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.97);
+}

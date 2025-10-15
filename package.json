@@ -1,0 +1,18 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A web to check the scores of the game beach racing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daveyify",
+  "license": "ISC",
+  "dependencies": {
+    "admin": "^1.4.1",
+    "express": "^5.1.0",
+    "firebase": "^12.4.0",
+    "firebase-admin": "^13.5.0"
+  }
+}
