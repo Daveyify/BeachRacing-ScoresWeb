@@ -2,32 +2,39 @@ document.getElementById('getScores').addEventListener('click', async function ()
     const usernameInput = document.getElementById('usernameInput').value.trim();
 
     if (!usernameInput) {
-        alert('Por favor ingresa un nombre de usuario.');
+        alert('Please enter a username.');
         return;
     }
 
     try {
         const response = await fetch(`http://localhost:3000/get/${usernameInput}`);
-        if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
+        if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
 
         const data = await response.json();
 
-        const list = document.getElementById('scoresResults');
-        list.innerHTML = '';
+        const tableBody = document.getElementById('scoresResults');
+        tableBody.innerHTML = '';
 
         if (data.length === 0) {
-            list.innerHTML = '<li>No hay registros para este usuario</li>';
+            tableBody.innerHTML = '<tr><td colspan="4">There are no scores for this user</td></tr>';
             return;
         }
 
         data.forEach(entry => {
-            const li = document.createElement('li');
-            li.textContent = `ID: ${entry.id} | Puntaje: ${entry.score} | Usuario: ${entry.username}`;
-            list.appendChild(li);
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${entry.username}</td>
+                <td>${entry.time}</td>
+                <td>${entry.balls}</td>
+                <td>${entry.carName}</td>
+            `;
+            tableBody.appendChild(row);
         });
 
     } catch (error) {
-        console.error('Error obteniendo datos:', error);
-        document.getElementById('scoresResults').innerHTML = '<li>Error obteniendo información.</li>';
+        console.error('Error getting the scores:', error);
+        document.getElementById('scoresResults').innerHTML = `
+            <tr><td colspan="4">Error getting the scores.</td></tr>
+        `;
     }
 });

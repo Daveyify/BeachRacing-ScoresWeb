@@ -1,6 +1,5 @@
 const express = require('express');
-const { db } = require("../services/firebase_service");
-const { collection, query, where, getDocs } = require("firebase/firestore");
+const db = require("../services/firebase_service");
 
 const router = express.Router();
 
@@ -10,13 +9,16 @@ router.get("/get/:username", async (req, res) => {
     const collectionName = "scores";
 
     try {
-        const q = query(collection(db, collectionName), where("username", "==", username));
-        const querySnapshot = await getDocs(q);
-        if (querySnapshot.empty) {
+        const snapshot = await db
+            .collection(collectionName)
+            .where("username", "==", username)
+            .get();
+
+        if (snapshot.empty) {
             return res.status(404).send(`No documents found for username '${username}'`);
         }
 
-        const results = querySnapshot.docs.map((doc) => ({
+        const results = snapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
         }));
