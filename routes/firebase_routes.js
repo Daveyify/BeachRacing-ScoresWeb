@@ -1,5 +1,5 @@
-const express = require("express");
-const { db } = require("../services/firebase_service.js");
+const express = require('express');
+const { db } = require("../services/firebase_service");
 const { collection, query, where, getDocs } = require("firebase/firestore");
 
 const router = express.Router();
@@ -28,4 +28,4 @@ router.get("/get/:username", async (req, res) => {
     }
 });
 
-export default router;
+module.exports = router;

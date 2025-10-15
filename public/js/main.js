@@ -7,7 +7,7 @@ document.getElementById('getScores').addEventListener('click', async function ()
     }
 
     try {
-        const response = await fetch(`http://localhost:3001/get/${usernameInput}`); // <-- tu ruta del backend
+        const response = await fetch(`http://localhost:3000/get/${usernameInput}`);
         if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
 
         const data = await response.json();

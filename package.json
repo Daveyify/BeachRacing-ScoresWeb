@@ -1,11 +1,11 @@
 {
-  "name": "package",
+  "name": "beach-racing-scores",
   "version": "1.0.0",
-  "type": "module",
   "description": "A web to check the scores of the game beach racing",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Daveyify",
   "license": "ISC",
